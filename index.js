@@ -87,10 +87,10 @@ bot.on("message", async message => {
             search = `gvsearch1:${args}`;
         }
         console.log(search);
-        message.channel.send("Searching.....").then((msg) => {
+        message.channel.send(`Searching for "${args}.....`).then((msg) => {
           YoutubeDL.getInfo(search, ['-q', '--no-warnings', '--force-ipv4'], (err, info) => {
               if(err || info.format_id == undefined || info.format_id.startsWith('0')) {
-                return message.channel.send("Could not find your video!");
+                return message.channel.send("Could not find your video, error: " + err);
               }
               console.log(`Recived info: ${info}`);
               var server = servers[message.guild.id];
