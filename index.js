@@ -61,7 +61,7 @@ bot.on("message", async message => {
             let embed = new Discord.RichEmbed()
                 .setAuthor(message.author.username)
                 .setTitle("Error")
-                .setDescription("Please provide me a link!")
+                .setDescription("Please provide me a link or a name of the song!")
                 .setColor("#FF0000")
                 .setTimestamp();
             return message.channel.send(embed);
